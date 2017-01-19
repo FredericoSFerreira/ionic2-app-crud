@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { NavController, NavParams, ViewController } from 'ionic-angular';
+import {CategoriaService} from './../../providers/categoria-service';
 
 /*
   Generated class for the ModalCategoria page.
@@ -9,11 +10,19 @@ import { NavController, NavParams, ViewController } from 'ionic-angular';
 */
 @Component({
   selector: 'page-modal-categoria',
-  templateUrl: 'modal-categoria.html'
+  templateUrl: 'modal-categoria.html',
+  providers: [CategoriaService]
 })
 export class ModalCategoriaPage {
 
-  constructor(public navCtrl: NavController, public navParams: NavParams, public view: ViewController) { }
+  categoria: any;
+
+  constructor(public navCtrl: NavController, public navParams: NavParams,
+    public view: ViewController, private categoriaService: CategoriaService) {
+
+    this.categoria = navParams.get('categoria') || {};
+
+  }
 
   ionViewDidLoad() {
     console.log('ionViewDidLoad ModalCategoriaPage');
@@ -21,6 +30,38 @@ export class ModalCategoriaPage {
 
   close() {
     this.view.dismiss();
+  }
+
+  cadastrar() {
+
+    if (this.categoria.id != undefined) {
+
+      this.categoriaService.update(this.categoria)
+        .then((res) => {
+          if (res) {
+            this.view.dismiss();
+          }
+        }, (error) => {
+          console.log(error);
+        })
+
+
+    } else {
+
+      this.categoriaService.insert(this.categoria)
+        .then((res) => {
+          if (res) {
+            this.view.dismiss();
+          }
+        }, (error) => {
+          console.log(error);
+        })
+
+
+    }
+
+
+
   }
 
 }

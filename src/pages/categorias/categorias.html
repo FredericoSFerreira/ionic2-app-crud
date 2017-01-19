@@ -15,7 +15,7 @@
         {{c.nome}}
       </ion-item>
       <ion-item-options>
-        <button ion-button color="primary">
+        <button ion-button color="primary" (click)="update(c)">
           <ion-icon name="create"></ion-icon>
         </button>
         <button ion-button color="danger" (click)="delete(c)">

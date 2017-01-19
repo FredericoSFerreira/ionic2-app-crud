@@ -71,4 +71,17 @@ export class CategoriasPage {
 
   }
 
+  update(categoria) {
+
+    let modal = this.modalCtrl.create(ModalCategoriaPage, {
+      categoria: categoria
+    });
+
+    modal.onDidDismiss(data => {
+      this.findAll();
+    });
+    modal.present();
+
+  }
+
 }

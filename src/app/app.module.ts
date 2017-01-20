@@ -5,6 +5,7 @@ import { HomePage } from '../pages/home/home';
 import { ProdutosPage } from '../pages/produtos/produtos';
 import { CategoriasPage } from '../pages/categorias/categorias';
 import { ModalCategoriaPage  } from '../pages/modal-categoria/modal-categoria';
+import { ModalProdutoPage  } from '../pages/modal-produto/modal-produto';
 
 
 @NgModule({
@@ -13,7 +14,8 @@ import { ModalCategoriaPage  } from '../pages/modal-categoria/modal-categoria';
     HomePage,
     ProdutosPage,
     CategoriasPage,
-    ModalCategoriaPage
+    ModalCategoriaPage,
+    ModalProdutoPage
   ],
   imports: [
     IonicModule.forRoot(MyApp)
@@ -24,7 +26,8 @@ import { ModalCategoriaPage  } from '../pages/modal-categoria/modal-categoria';
     HomePage,
     ProdutosPage,
     CategoriasPage,
-    ModalCategoriaPage
+    ModalCategoriaPage,
+    ModalProdutoPage
   ],
   providers: [{ provide: ErrorHandler, useClass: IonicErrorHandler }]
 })

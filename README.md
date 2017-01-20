@@ -6,7 +6,7 @@ utilizado APÌ desse repositorio rodando via c9.io
 
 https://github.com/plinionaves/product-api
 
-#Intall
+#Install
 
 clone projeto
 
